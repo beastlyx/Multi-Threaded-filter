@@ -1,0 +1,4 @@
+/usr/local/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/parallels/Downloads/clion-2023.3.3/bin/ninja/linux/aarch64/ninja -G Ninja -S /home/parallels/CLionProjects/module_6 -B /home/parallels/CLionProjects/module_6/cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/parallels/CLionProjects/module_6/cmake-build-debug
