@@ -6,7 +6,7 @@ apply various filters to images efficiently. The program can process BMP images 
 multiple threads, making it significantly faster than single-threaded implementations.
 
 Before and After applying filter to an image:  
-![Before](Parallel-Image-Filtering/test1wonderbread.bmp) ![After](Parallel-Image-Filtering/test1_output.bmp)
+![Before](test1wonderbread.bmp) ![After](test1_output.bmp)
 
 ## Algorithms used
 
@@ -14,7 +14,7 @@ Before and After applying filter to an image:
 This function applies a blur effect to an image. It uses a 3x3 grid of neighboring pixels to calculate the new color for 
 each pixel. For each pixel in the image, it averages the red, green, and blue values of its valid neighbors and assigns 
 these averaged values back to the pixel, resulting in a blurred effect.
-![BoxBlur](Parallel-Image-Filtering/BoxBlur.png)
+![BoxBlur](BoxBlur.png)
 
 ### Generating holes
 This algorithm is designed to generate random holes that are evenly distributed along the x and y-axis on an image. The 
@@ -27,7 +27,7 @@ large holes based on the total number of holes where medium-sized holes are the 
 and small and large are less common to add diversity. The method then assigns a size to each hole, which will scale with 
 different sized images, and stores these values in an array. This array is shuffled to randomize the order of the hole 
 sizes.
-![CalculateHoles](Parallel-Image-Filtering/CalculateHoles.png)  
+![CalculateHoles](CalculateHoles.png)  
 
 
 #### draw_holes algorithm
@@ -39,7 +39,7 @@ is applied to blend the hole smoothly into the surrounding area.
 
 **Thread Coordination**: Each thread works on a specific portion of the image to avoid overlap and ensure efficient 
 processing. The threads calculate their bounds to ensure they only work within their assigned section.
-![DrawHoles](Parallel-Image-Filtering/DrawHoles.png)
+![DrawHoles](DrawHoles.png)
 
 
 #### calculate_random_coordinates algorithm
@@ -48,4 +48,4 @@ calculates the dimensions of a NxM grid that divides the image into evenly sized
 one hole. The method then generates random coordinates within each grid section, ensuring that the holes are randomly 
 spaced and not clustered together. The coordinates are stored in an array, which is used by the draw_holes method to 
 determine the center of each hole.
-![RandomCoordinates](Parallel-Image-Filtering/RandomCoordinates.png)
+![RandomCoordinates](RandomCoordinates.png)
